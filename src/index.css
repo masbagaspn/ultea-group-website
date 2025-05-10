@@ -1,0 +1,25 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'DM Sans', 'sans-serif';
+
+  --color-green-900: #0f1e19;
+  --color-green-800: #0e3327;
+  --color-green-700: #0d4734;
+  --color-green-600: #6e9b5b;
+  --color-green-500: #cfef82;
+  --color-green-400: #cfee9b;
+  --color-green-300: #cfecb4;
+  --color-green-200: #e1f1cc;
+  --color-green-100: #f3f5e3;
+
+  --color-primary: var(--color-green-700);
+  --color-secondary: var(--color-green-500);
+  --color-tertiary: var(--color-green-300);
+}
+
+@layer base {
+  * {
+    @apply font-sans;
+  }
+}
