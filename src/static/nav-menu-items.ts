@@ -5,7 +5,7 @@ export const navMenuItems = [
   },
   {
     name: 'tentang kami',
-    path: '/tentang',
+    path: '/tentang-kami',
   },
   {
     name: 'produk',

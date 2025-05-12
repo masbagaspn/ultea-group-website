@@ -9,7 +9,7 @@ const heroMixProducts = {
 const heroProducts = [
   heroMixProducts,
   ...products.map((product) => ({
-    image: product.heroImage,
+    image: product.imageHero,
     tokopedia: product.links.tokopedia,
     shopee: product.links.shopee,
   })),
