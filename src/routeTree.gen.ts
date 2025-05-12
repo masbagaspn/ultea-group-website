@@ -12,7 +12,10 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as TentangKamiImport } from './routes/tentang-kami'
+import { Route as KontakImport } from './routes/kontak'
 import { Route as IndexImport } from './routes/index'
+import { Route as ProdukIndexImport } from './routes/produk/index'
+import { Route as ProdukProdukIdImport } from './routes/produk/$produkId'
 
 // Create/Update Routes
 
@@ -22,9 +25,27 @@ const TentangKamiRoute = TentangKamiImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const KontakRoute = KontakImport.update({
+  id: '/kontak',
+  path: '/kontak',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ProdukIndexRoute = ProdukIndexImport.update({
+  id: '/produk/',
+  path: '/produk/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ProdukProdukIdRoute = ProdukProdukIdImport.update({
+  id: '/produk/$produkId',
+  path: '/produk/$produkId',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -39,11 +60,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/kontak': {
+      id: '/kontak'
+      path: '/kontak'
+      fullPath: '/kontak'
+      preLoaderRoute: typeof KontakImport
+      parentRoute: typeof rootRoute
+    }
     '/tentang-kami': {
       id: '/tentang-kami'
       path: '/tentang-kami'
       fullPath: '/tentang-kami'
       preLoaderRoute: typeof TentangKamiImport
+      parentRoute: typeof rootRoute
+    }
+    '/produk/$produkId': {
+      id: '/produk/$produkId'
+      path: '/produk/$produkId'
+      fullPath: '/produk/$produkId'
+      preLoaderRoute: typeof ProdukProdukIdImport
+      parentRoute: typeof rootRoute
+    }
+    '/produk/': {
+      id: '/produk/'
+      path: '/produk'
+      fullPath: '/produk'
+      preLoaderRoute: typeof ProdukIndexImport
       parentRoute: typeof rootRoute
     }
   }
@@ -53,37 +95,58 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/kontak': typeof KontakRoute
   '/tentang-kami': typeof TentangKamiRoute
+  '/produk/$produkId': typeof ProdukProdukIdRoute
+  '/produk': typeof ProdukIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/kontak': typeof KontakRoute
   '/tentang-kami': typeof TentangKamiRoute
+  '/produk/$produkId': typeof ProdukProdukIdRoute
+  '/produk': typeof ProdukIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/kontak': typeof KontakRoute
   '/tentang-kami': typeof TentangKamiRoute
+  '/produk/$produkId': typeof ProdukProdukIdRoute
+  '/produk/': typeof ProdukIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/tentang-kami'
+  fullPaths: '/' | '/kontak' | '/tentang-kami' | '/produk/$produkId' | '/produk'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/tentang-kami'
-  id: '__root__' | '/' | '/tentang-kami'
+  to: '/' | '/kontak' | '/tentang-kami' | '/produk/$produkId' | '/produk'
+  id:
+    | '__root__'
+    | '/'
+    | '/kontak'
+    | '/tentang-kami'
+    | '/produk/$produkId'
+    | '/produk/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  KontakRoute: typeof KontakRoute
   TentangKamiRoute: typeof TentangKamiRoute
+  ProdukProdukIdRoute: typeof ProdukProdukIdRoute
+  ProdukIndexRoute: typeof ProdukIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  KontakRoute: KontakRoute,
   TentangKamiRoute: TentangKamiRoute,
+  ProdukProdukIdRoute: ProdukProdukIdRoute,
+  ProdukIndexRoute: ProdukIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -97,14 +160,26 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/tentang-kami"
+        "/kontak",
+        "/tentang-kami",
+        "/produk/$produkId",
+        "/produk/"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
+    "/kontak": {
+      "filePath": "kontak.tsx"
+    },
     "/tentang-kami": {
       "filePath": "tentang-kami.tsx"
+    },
+    "/produk/$produkId": {
+      "filePath": "produk/$produkId.tsx"
+    },
+    "/produk/": {
+      "filePath": "produk/index.tsx"
     }
   }
 }

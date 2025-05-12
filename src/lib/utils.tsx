@@ -22,3 +22,10 @@ export function generateInitials(name: string) {
   const splitName = name.split(' ')
   return splitName.map((name) => name.charAt(0)).join('')
 }
+
+export function convertToPrice(price: number) {
+  return price.toLocaleString('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+  })
+}

@@ -53,13 +53,22 @@ const HeroSection = () => {
         <div ref={containerRef} className="relative h-[400vh] w-1/2">
           <div className="text-primary sticky top-28 flex h-[80vh] items-end text-xl">
             <div className="relative w-full">
-              <m.p style={{ opacity: opacity1, y: y1 }} className="absolute bottom-16">
+              <m.p
+                style={{ opacity: opacity1, y: y1 }}
+                className="absolute bottom-1/2 h-fit -translate-y-1/2"
+              >
                 {heroSectionContents.contents[0]}
               </m.p>
-              <m.p style={{ opacity: opacity2, y: y2 }} className="absolute bottom-16">
+              <m.p
+                style={{ opacity: opacity2, y: y2 }}
+                className="absolute bottom-1/2 h-fit -translate-y-1/2"
+              >
                 {heroSectionContents.contents[1]}
               </m.p>
-              <m.p style={{ opacity: opacity3, y: y3 }} className="absolute bottom-16">
+              <m.p
+                style={{ opacity: opacity3, y: y3 }}
+                className="absolute bottom-1/2 h-fit -translate-y-1/2"
+              >
                 {heroSectionContents.contents[2]}
               </m.p>
             </div>

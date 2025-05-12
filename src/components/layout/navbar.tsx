@@ -32,7 +32,7 @@ const NavBar = ({ className, ...rest }: NavBarProps) => {
   return (
     <header
       className={cn(
-        'z-20 flex items-center justify-between px-10 py-6 backdrop-blur transition',
+        'z-50 flex items-center justify-between px-10 py-6 backdrop-blur transition',
         {
           'translate-y-0': show,
           '-translate-y-full': !show,

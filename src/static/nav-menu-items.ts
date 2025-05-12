@@ -17,6 +17,6 @@ export const navMenuItems = [
   },
   {
     name: 'kontak',
-    to: '/kontak',
+    path: '/kontak',
   },
 ]

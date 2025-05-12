@@ -6,6 +6,8 @@ const products = [
     imageProduct: '/assets/products/product-ultea-transparent.png',
     description:
       'Kapsul ekstrak teh hijau yang lebih praktis untuk diminum, namun mengandung manfaat yang setara dengan meminum beberapa gelas teh hijau sekaligus. Ultea Kapsul diproduksi dengan teknologi terbaru dan pendekatan lebih detail untuk meningkatkan kandungan antioksidan dalam setiap kapsulnya. Kandungan antioksidan yang tinggi diharapkan bisa mencegah dan membantu pengobatan agar lebih optimal.',
+    items: '30 Kapsul',
+    price: 200000,
     benefits: [
       'Membantu penyembuhan penyakit akibat penuaan sel',
       'Meningkatkan sistem kekebalan tubuh dalam melawan infeksi dan gangguan lain',
@@ -37,11 +39,13 @@ const products = [
     imageProduct: '/assets/products/product-ulteadrink-transparent.png',
     description:
       'Ultea Drink dibuat dari teh hijau (Camellia sinensis) asli dan secang. Teh diekstraksi sedemikian rupa sehingga memiliki kandungan epigalokatekingalat (EGCG) yang tinggi dan penggunaan secang selain menambahkan rasa dan bau aromatik pada teh ini, berguna juga untuk meningkatkan efektivitas antioksidan pada tiap sachetnya. EGCG yang dipadukan secang merupakan produk paling terbaru dari kami yang telah lulus pengujian dan berbasis jurnal ilmiah yang telah terbukti sangat ampuh bagi penyembuhan dan pencegahan kanker, diabetes melitus, hipertensi, kolesterol, dan penyakit degeneratif lainnya. Ultea Drink juga bermanfaat untuk pencegahan dan menjaga organ tubuh seperti kesuburan pria dan wanita, menjaga liver, dan mencegah penuaan.',
+    items: '30 Sachet (@2gram)',
+    price: 100000,
     benefits: [
       'Membantu menghambat dan mencegah pertumbuhan sel, seperti kanker payudara, kanker serviks, kanker prostat, kanker paru-paru, dan berbagai jenis kanker lainnya',
+      'Bersifat antioksidan sehingga dapat melawan zat berbahaya dalam tubuh sehingga dapat membantu pencegahan penyakit degeneratif (Diabetes Melitus, hypertensi, kolesterol, asam urat dan lain-lain)',
       'Meningkatkan dan memperbaiki sistem imun tubuh (baik untuk penderita autoimun)',
       'Cocok dan membantu bagi penderita alergi',
-      'Bersifat antioksidan sehingga dapat melawan zat berbahaya dalam tubuh sehingga dapat membantu pencegahan penyakit degeneratif (Diabetes Melitus, hypertensi, kolesterol, asam urat dan lain-lain)',
       'Membantu melawan bakteri TB',
       'Meningkatkan vitalitas',
       'Membantu memperbaiki sistem metabolisme tubuh',
@@ -63,6 +67,8 @@ const products = [
     imageProduct: '/assets/products/product-ulteaplus-transparent.png',
     description:
       'Kapsul ekstrak teh hijau yang dikombinasikan dengan ekstrak Curcumin (temulawak). Kombinasi ini dihadirkan untuk membantu pengobatan penyakit yang sudah pada tahap lanjut, khususnya kanker dan penyakit degeneratif lain. Ultea Plus dapat membantu mencegah dan mengurangi penyebaran penyakit yang sangat cepat. Ultea Plus mengandung 150mg EGCG dari teh hijau dan Curcumin dari temulawak.',
+    items: '30 Kapsul',
+    price: 230000,
     benefits: [
       'Membantu penyembuhan penyakit akibat penuaan sel',
       'Meningkatkan sistem kekebalan tubuh dalam melawan gangguan dari luar',
@@ -98,6 +104,8 @@ const products = [
     imageProduct: '/assets/products/product-albunata-transparent.png',
     description:
       'Setiap kapsul Albunata mengandung 375 mg ekstrak ikan gabus yang mampu membantu anda meningkatkan kekebalan tubuh. Produk bahan alam berbasis ilmiah ini mengandung albumin ikan gabus yang mudah diserap sehingga dapat membantu memperbaiki sel yang rusak di dalam tubuh. Kapsul albumin ini sangat bermanfaat bagi penderita kanker yang banyak kekurangan albumin akibat kemoterapi, usia lanjut, mal nutrisi atau penyebab lainnya.',
+    items: '30 Kapsul',
+    price: 150000,
     benefits: [
       'Meningkatkan daya tahan tubuh, metabolisme, dan kandungan gizi dalam tubuh',
       'Meningkatkan kadar Albumin dan Hemoglobin',
