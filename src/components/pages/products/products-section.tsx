@@ -16,7 +16,7 @@ const ProductSection = () => {
           />
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-1">
-              <Link to="/produk/$produkId" params={{ produkId: product.id }}>
+              <Link to="/produk/$produkId" params={{ produkId: product.id }} resetScroll={false}>
                 <m.div
                   whileHover={{ width: '100%' }}
                   className="group hover:text-primary inline-flex w-fit items-center justify-between gap-2 text-black"

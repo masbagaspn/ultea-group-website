@@ -28,7 +28,7 @@ const ProductsContainer = () => {
           />
           <div className="flex w-full items-center justify-between">
             <h3 className="text-tertiary text-3xl capitalize">{product.name}</h3>
-            <Link to="/produk/$produkId" params={{ produkId: product.id }}>
+            <Link to="/produk/$produkId" params={{ produkId: product.id }} resetScroll={false}>
               <button className="text-primary cursor-pointer rounded-full bg-white p-2 transition hover:-rotate-45">
                 <ArrowRight size={20} />
               </button>
