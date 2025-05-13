@@ -5,7 +5,10 @@ const Footer = () => {
   return (
     <footer className="p-10">
       <div className="bg-primary grid grid-cols-3 rounded-2xl p-10 text-white">
-        <h1>Ultea Group</h1>
+        <h1>
+          <span className="sr-only">Ultea Group</span>
+          <img src="/assets/logo/logotype-colored-white.png" className="h-6" />
+        </h1>
         <div className="flex flex-col gap-10">
           <h2>Sitemap</h2>
           <ul className="flex flex-col gap-4">

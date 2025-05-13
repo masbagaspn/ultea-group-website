@@ -4,9 +4,9 @@ import companySectionContents from '@static/home/company-section'
 const CompanySection = () => {
   return (
     <Section className="flex flex-col gap-32">
-      <div className="grid w-full grid-cols-3">
+      <div className="text-primary grid w-full grid-cols-3">
         <h2 className="font-light uppercase">{companySectionContents.headline}</h2>
-        <p className="text-primary col-span-2 text-5xl">{companySectionContents.subheadline}</p>
+        <p className="col-span-2 text-5xl">{companySectionContents.subheadline}</p>
       </div>
       <div className="grid grid-cols-4 gap-10">
         {companySectionContents.contents.map((content, index) => {

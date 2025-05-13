@@ -15,7 +15,9 @@ import { Route as TentangKamiImport } from './routes/tentang-kami'
 import { Route as KontakImport } from './routes/kontak'
 import { Route as IndexImport } from './routes/index'
 import { Route as ProdukIndexImport } from './routes/produk/index'
+import { Route as InformasiIndexImport } from './routes/informasi/index'
 import { Route as ProdukProdukIdImport } from './routes/produk/$produkId'
+import { Route as InformasiInformasiIdImport } from './routes/informasi/$informasiId'
 
 // Create/Update Routes
 
@@ -43,9 +45,21 @@ const ProdukIndexRoute = ProdukIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const InformasiIndexRoute = InformasiIndexImport.update({
+  id: '/informasi/',
+  path: '/informasi/',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const ProdukProdukIdRoute = ProdukProdukIdImport.update({
   id: '/produk/$produkId',
   path: '/produk/$produkId',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const InformasiInformasiIdRoute = InformasiInformasiIdImport.update({
+  id: '/informasi/$informasiId',
+  path: '/informasi/$informasiId',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -74,11 +88,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TentangKamiImport
       parentRoute: typeof rootRoute
     }
+    '/informasi/$informasiId': {
+      id: '/informasi/$informasiId'
+      path: '/informasi/$informasiId'
+      fullPath: '/informasi/$informasiId'
+      preLoaderRoute: typeof InformasiInformasiIdImport
+      parentRoute: typeof rootRoute
+    }
     '/produk/$produkId': {
       id: '/produk/$produkId'
       path: '/produk/$produkId'
       fullPath: '/produk/$produkId'
       preLoaderRoute: typeof ProdukProdukIdImport
+      parentRoute: typeof rootRoute
+    }
+    '/informasi/': {
+      id: '/informasi/'
+      path: '/informasi'
+      fullPath: '/informasi'
+      preLoaderRoute: typeof InformasiIndexImport
       parentRoute: typeof rootRoute
     }
     '/produk/': {
@@ -97,7 +125,9 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/kontak': typeof KontakRoute
   '/tentang-kami': typeof TentangKamiRoute
+  '/informasi/$informasiId': typeof InformasiInformasiIdRoute
   '/produk/$produkId': typeof ProdukProdukIdRoute
+  '/informasi': typeof InformasiIndexRoute
   '/produk': typeof ProdukIndexRoute
 }
 
@@ -105,7 +135,9 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/kontak': typeof KontakRoute
   '/tentang-kami': typeof TentangKamiRoute
+  '/informasi/$informasiId': typeof InformasiInformasiIdRoute
   '/produk/$produkId': typeof ProdukProdukIdRoute
+  '/informasi': typeof InformasiIndexRoute
   '/produk': typeof ProdukIndexRoute
 }
 
@@ -114,21 +146,39 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/kontak': typeof KontakRoute
   '/tentang-kami': typeof TentangKamiRoute
+  '/informasi/$informasiId': typeof InformasiInformasiIdRoute
   '/produk/$produkId': typeof ProdukProdukIdRoute
+  '/informasi/': typeof InformasiIndexRoute
   '/produk/': typeof ProdukIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/kontak' | '/tentang-kami' | '/produk/$produkId' | '/produk'
+  fullPaths:
+    | '/'
+    | '/kontak'
+    | '/tentang-kami'
+    | '/informasi/$informasiId'
+    | '/produk/$produkId'
+    | '/informasi'
+    | '/produk'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/kontak' | '/tentang-kami' | '/produk/$produkId' | '/produk'
+  to:
+    | '/'
+    | '/kontak'
+    | '/tentang-kami'
+    | '/informasi/$informasiId'
+    | '/produk/$produkId'
+    | '/informasi'
+    | '/produk'
   id:
     | '__root__'
     | '/'
     | '/kontak'
     | '/tentang-kami'
+    | '/informasi/$informasiId'
     | '/produk/$produkId'
+    | '/informasi/'
     | '/produk/'
   fileRoutesById: FileRoutesById
 }
@@ -137,7 +187,9 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   KontakRoute: typeof KontakRoute
   TentangKamiRoute: typeof TentangKamiRoute
+  InformasiInformasiIdRoute: typeof InformasiInformasiIdRoute
   ProdukProdukIdRoute: typeof ProdukProdukIdRoute
+  InformasiIndexRoute: typeof InformasiIndexRoute
   ProdukIndexRoute: typeof ProdukIndexRoute
 }
 
@@ -145,7 +197,9 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   KontakRoute: KontakRoute,
   TentangKamiRoute: TentangKamiRoute,
+  InformasiInformasiIdRoute: InformasiInformasiIdRoute,
   ProdukProdukIdRoute: ProdukProdukIdRoute,
+  InformasiIndexRoute: InformasiIndexRoute,
   ProdukIndexRoute: ProdukIndexRoute,
 }
 
@@ -162,7 +216,9 @@ export const routeTree = rootRoute
         "/",
         "/kontak",
         "/tentang-kami",
+        "/informasi/$informasiId",
         "/produk/$produkId",
+        "/informasi/",
         "/produk/"
       ]
     },
@@ -175,8 +231,14 @@ export const routeTree = rootRoute
     "/tentang-kami": {
       "filePath": "tentang-kami.tsx"
     },
+    "/informasi/$informasiId": {
+      "filePath": "informasi/$informasiId.tsx"
+    },
     "/produk/$produkId": {
       "filePath": "produk/$produkId.tsx"
+    },
+    "/informasi/": {
+      "filePath": "informasi/index.tsx"
     },
     "/produk/": {
       "filePath": "produk/index.tsx"

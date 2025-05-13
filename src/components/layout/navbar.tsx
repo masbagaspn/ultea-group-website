@@ -41,7 +41,10 @@ const NavBar = ({ className, ...rest }: NavBarProps) => {
       )}
       {...rest}
     >
-      <h1>Ultea Group</h1>
+      <h1>
+        <img className="h-6" src="/assets/logo/logotype-colored-green.png" />
+        <span className="sr-only">Ultea Group</span>
+      </h1>
       <nav className="flex gap-10">
         {navMenuItems.map((item) => {
           return (

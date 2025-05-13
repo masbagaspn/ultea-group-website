@@ -1,5 +1,6 @@
 import Section from '@components/layout/section'
 import { productSectionContents } from '@static/home/product-section'
+import { Link } from '@tanstack/react-router'
 import { ArrowRight } from 'lucide-react'
 
 const ProductSection = () => {
@@ -27,9 +28,11 @@ const ProductsContainer = () => {
           />
           <div className="flex w-full items-center justify-between">
             <h3 className="text-tertiary text-3xl capitalize">{product.name}</h3>
-            <button className="text-primary cursor-pointer rounded-full bg-white p-2 transition hover:-rotate-45">
-              <ArrowRight size={20} />
-            </button>
+            <Link to="/produk/$produkId" params={{ produkId: product.id }}>
+              <button className="text-primary cursor-pointer rounded-full bg-white p-2 transition hover:-rotate-45">
+                <ArrowRight size={20} />
+              </button>
+            </Link>
           </div>
         </div>
       ))}

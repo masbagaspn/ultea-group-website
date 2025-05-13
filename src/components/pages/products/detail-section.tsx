@@ -46,7 +46,7 @@ const DetailSection = () => {
             </div>
           </div>
         </div>
-        <p className="text-xl font-light text-neutral-700">{product.description}</p>
+        <p className="text-base leading-5 font-light text-neutral-700">{product.description}</p>
       </div>
     </Section>
   )

@@ -1,10 +1,11 @@
-const rumah = {
+const rumahUltea = {
   name: 'Rumah Ultea',
   contents: [
     'Jl. Pandugo Baru XIII Blok R no. 41',
     'Kel. Penjaringan Sari, Kec. Rungkut',
     'Surabaya, 60297',
   ],
+  links: 'https://maps.app.goo.gl/FJf5J8KpbPSBFdvN9',
 }
 
 const socialMedia = {
@@ -49,6 +50,6 @@ const ecommerce = {
   ],
 }
 
-const contacts = [rumah, socialMedia, ecommerce]
+const contacts = { rumahUltea, socialMedia, ecommerce }
 
 export default contacts

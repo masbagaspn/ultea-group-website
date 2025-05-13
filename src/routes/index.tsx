@@ -1,4 +1,5 @@
 import CopySection from '@components/pages/home/copy-section'
+import InformationSection from '@components/pages/home/information-section'
 import ProductSection from '@components/pages/home/product-section'
 import TestimonySection from '@components/pages/home/testimony-section'
 import { createFileRoute } from '@tanstack/react-router'
@@ -18,6 +19,7 @@ function RouteComponent() {
       <ProductSection />
       <CopySection />
       <TestimonySection />
+      <InformationSection />
     </PageLayout>
   )
 }
