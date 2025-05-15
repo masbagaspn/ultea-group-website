@@ -95,34 +95,38 @@ const DesktopInformation = () => {
 
 const MobileInformation = () => {
   return (
-    <div className="grid w-full grid-cols-2 gap-4">
+    <div className="flex w-full flex-col">
       {articlesDummy.map((article, idx) => (
-        <article key={`information-${idx}`} className={cn({ 'col-span-2': idx === 0 })}>
-          <Link
-            to="/informasi/$informasiId"
-            params={{ informasiId: article.title }}
-            className={cn(
-              'relative flex h-60 cursor-pointer flex-col justify-between gap-2 overflow-hidden p-4 text-white',
-              'rounded-lg',
-              { 'aspect-video h-auto w-full': idx === 0 },
-              { 'aspect-square h-auto w-full': idx !== 0 },
-            )}
+        <Link
+          to="/informasi/$informasiId"
+          params={{ informasiId: article.title }}
+          key={`information-card-${article.title}`}
+        >
+          <article
+            className={cn('text-primary flex flex-col gap-6 py-6', 'lg:border-none', {
+              'border-primary/30 border-t': idx !== articlesDummy.length,
+              'border-b': idx === articlesDummy.length - 1,
+            })}
           >
-            <div
-              className={cn(
-                'items-between z-10 flex w-full flex-1 justify-between gap-3 text-xs font-light text-white',
-                { 'flex-col': idx !== 0 },
-              )}
-            >
-              <span className="z-10">{article.type}</span>
-              <span className="z-10">{article.category}</span>
+            <img
+              src="/assets/image-placeholder.webp"
+              className="bg-tertiary aspect-video h-auto w-full rounded-lg object-cover lg:rounded-2xl"
+            />
+            <div className="flex flex-col gap-1 lg:gap-3">
+              <div className="flex w-full justify-between text-xs font-light text-black lg:text-base">
+                <span className="font-normal uppercase">{article.category}</span>
+                <span>{article.type}</span>
+              </div>
+              <h3 className="text-xl font-medium text-nowrap text-ellipsis lg:text-2xl">
+                {article.title}
+              </h3>
+              <p className="inline-flex flex-col items-start gap-1 text-xs lg:text-base">
+                by Article Author
+                <span className="text-xs text-neutral-500 lg:text-sm">{`${new Date().toUTCString()}`}</span>
+              </p>
             </div>
-            <h3 className="z-10 w-full overflow-hidden text-base font-medium text-ellipsis whitespace-nowrap">
-              {article.title}
-            </h3>
-            <img className="absolute top-0 left-0 z-0 h-full w-full overflow-hidden rounded-lg bg-black object-cover lg:rounded-2xl" />
-          </Link>
-        </article>
+          </article>
+        </Link>
       ))}
     </div>
   )

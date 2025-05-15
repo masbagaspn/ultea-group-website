@@ -41,10 +41,12 @@ const DesktopNavBar = ({ className, ...rest }: DesktopNavBarProps) => {
       )}
       {...rest}
     >
-      <h1 className="w-fit">
-        <img className="h-6" src="/assets/logo/logotype-colored-green.png" />
-        <span className="sr-only">Ultea Group</span>
-      </h1>
+      <Link to="/">
+        <h1 className="w-fit">
+          <img className="h-6" src="/assets/logo/logotype-colored-green.png" />
+          <span className="sr-only">Ultea Group</span>
+        </h1>
+      </Link>
       <nav className="flex gap-10">
         {navMenuItems.map((item) => {
           return (

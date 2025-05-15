@@ -17,10 +17,12 @@ const MobileNavBar = ({ className, ...props }: MobileNavBarProps) => {
       className={cn('sticky top-0 z-30 flex w-full justify-between px-6 py-4', className)}
       {...props}
     >
-      <h1>
-        <img src="/assets/logo/logotype-colored-green.png" className="h-5" />
-        <span className="sr-only">Ultea Group</span>
-      </h1>
+      <Link to="/">
+        <h1>
+          <img src="/assets/logo/logotype-colored-green.png" className="h-5" />
+          <span className="sr-only">Ultea Group</span>
+        </h1>
+      </Link>
       <button onClick={() => setShow(true)} className="text-primary">
         <Menu size={20} />
       </button>
