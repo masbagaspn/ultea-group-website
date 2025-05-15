@@ -6,10 +6,10 @@ import { ArrowRight } from 'lucide-react'
 const ProductSection = () => {
   return (
     <Section>
-      <div className="bg-primary flex flex-col gap-20 rounded-2xl p-10">
-        <div className="text-tertiary grid grid-cols-5">
-          <h2 className="col-span-2 font-light uppercase">{productSectionContents.headline}</h2>
-          <p className="col-span-3 text-5xl">{productSectionContents.subheadline}</p>
+      <div className="bg-primary flex flex-col gap-20 rounded-lg p-4 lg:rounded-2xl lg:p-10">
+        <div className="text-tertiary flex flex-col gap-4 lg:grid lg:grid-cols-5">
+          <h2 className="section-title col-span-2">{productSectionContents.headline}</h2>
+          <p className="headline col-span-3">{productSectionContents.subheadline}</p>
         </div>
         <ProductsContainer />
       </div>
@@ -19,19 +19,25 @@ const ProductSection = () => {
 
 const ProductsContainer = () => {
   return (
-    <div className="grid grid-cols-4 gap-10">
+    <div className="flex grid grid-cols-2 flex-col gap-6 lg:grid-cols-4 lg:gap-10">
       {productSectionContents.contents.map((product) => (
-        <div className="flex flex-col gap-4">
+        <div
+          key={`home-products-${product.name}`}
+          className="flex flex-col gap-2 lg:flex-col lg:gap-4"
+        >
           <img
             src={product.imageProduct}
-            className="bg-tertiary aspect-square h-auto w-full rounded-xl object-cover"
+            className="bg-tertiary aspect-square h-auto w-full rounded object-cover lg:rounded-xl"
           />
           <div className="flex w-full items-center justify-between">
-            <h3 className="text-tertiary text-3xl capitalize">{product.name}</h3>
-            <Link to="/produk/$produkId" params={{ produkId: product.id }} resetScroll={false}>
-              <button className="text-primary cursor-pointer rounded-full bg-white p-2 transition hover:-rotate-45">
-                <ArrowRight size={20} />
-              </button>
+            <Link
+              to="/produk/$produkId"
+              params={{ produkId: product.id }}
+              resetScroll={false}
+              className="group text-tertiary inline-flex w-full items-center justify-between text-base capitalize transition hover:opacity-70 lg:text-3xl"
+            >
+              {product.name}
+              <ArrowRight className="w-4 transition group-hover:-rotate-45 lg:w-8" />
             </Link>
           </div>
         </div>

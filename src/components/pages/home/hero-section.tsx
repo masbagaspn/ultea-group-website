@@ -1,17 +1,16 @@
+import Section from '@components/layout/section'
 import HeroCarousel from '@components/pages/home/hero-carousel'
 import heroSectionContents from '@static/home/hero-section'
 
 const HeroSection = () => {
   return (
-    <section className="flex flex-col gap-10 p-10 pt-32">
-      <div className="text-primary grid w-full grid-cols-3 gap-10">
-        <h2 className="col-span-2 text-5xl">{heroSectionContents.headline}</h2>
-        <p className="inline-flex items-end text-xl font-light">
-          {heroSectionContents.subheadline}
-        </p>
+    <Section className="flex min-h-[90vh] flex-col justify-between gap-10 lg:h-fit lg:justify-start">
+      <div className="text-primary flex w-full flex-col gap-4 lg:grid lg:grid-cols-3 lg:gap-10">
+        <h2 className="headline lg:col-span-2">{heroSectionContents.headline}</h2>
+        <p className="subheadline inline-flex items-end">{heroSectionContents.subheadline}</p>
       </div>
       <HeroCarousel />
-    </section>
+    </Section>
   )
 }
 

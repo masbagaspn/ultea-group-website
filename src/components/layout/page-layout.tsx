@@ -1,20 +1,9 @@
 import Footer from '@components/layout/footer'
-import NavBar from '@components/layout/navbar'
+import NavBar from '@components/navigations/navbar'
 import { useRouter } from '@tanstack/react-router'
 import React from 'react'
 
 const PageLayout = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <main className="relative min-h-screen max-w-screen">
-      <NavBar className="sticky top-0 bg-white backdrop-blur" />
-      <ScrollToTopOnNavigate />
-      {children}
-      <Footer />
-    </main>
-  )
-}
-
-export function ScrollToTopOnNavigate() {
   const router = useRouter()
 
   React.useEffect(() => {
@@ -24,7 +13,13 @@ export function ScrollToTopOnNavigate() {
     return unsub
   }, [router])
 
-  return null
+  return (
+    <main className="relative min-h-screen max-w-screen">
+      <NavBar />
+      {children}
+      <Footer />
+    </main>
+  )
 }
 
 export default PageLayout

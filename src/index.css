@@ -23,3 +23,15 @@
     @apply font-sans;
   }
 }
+
+@layer components {
+  .section-title {
+    @apply text-xs font-light uppercase lg:text-base;
+  }
+  .headline {
+    @apply text-2xl leading-7 tracking-tight lg:text-5xl lg:leading-tight lg:tracking-normal;
+  }
+  .subheadline {
+    @apply text-base leading-6 font-light tracking-tight lg:text-xl lg:leading-tight;
+  }
+}

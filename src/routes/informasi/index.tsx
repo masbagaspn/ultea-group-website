@@ -1,7 +1,9 @@
 import PageLayout from '@components/layout/page-layout'
 import Section from '@components/layout/section'
+import { cn } from '@lib/utils'
 import { createFileRoute } from '@tanstack/react-router'
 import { ChevronDown, Search } from 'lucide-react'
+import { AnimatePresence, motion as m } from 'motion/react'
 import React from 'react'
 
 export const Route = createFileRoute('/informasi/')({
@@ -36,22 +38,37 @@ function RouteComponent() {
                     <ChevronDown strokeWidth={1} />
                   </span>
                 </button>
-                {showTypeFilter && (
-                  <div
-                    onMouseLeave={() => setShowTypeFilter(false)}
-                    className="absolute top-14 flex w-60 flex-col rounded-lg border-[0.5px] bg-white drop-shadow-2xl"
-                  >
-                    {types.map((type) => (
-                      <button
-                        onClick={() => handleSelectType(type)}
-                        key={`information-type-filter-${type}`}
-                        className="text-primary/70 hover:text-primary w-full cursor-pointer border-b py-3 text-sm capitalize"
-                      >
-                        {type}
-                      </button>
-                    ))}
-                  </div>
-                )}
+                <AnimatePresence>
+                  {showTypeFilter && (
+                    <m.div
+                      initial={{ height: '0px', opacity: 0 }}
+                      animate={{
+                        height: showTypeFilter ? '400%' : '0px',
+                        opacity: showTypeFilter ? 100 : 0,
+                      }}
+                      exit={{ height: '0px', opacity: 0 }}
+                      transition={{ duration: 0.5, stiffness: 0 }}
+                      onMouseLeave={() => setShowTypeFilter(false)}
+                      className="border-primary absolute top-14 flex w-60 flex-col overflow-hidden rounded-lg border-[0.5px] bg-white drop-shadow-2xl"
+                    >
+                      {types.map((type, idx) => (
+                        <button
+                          onClick={() => handleSelectType(type)}
+                          key={`information-type-filter-${type}`}
+                          className={cn(
+                            'text-primary/70 hover:text-primary border-primary inline-flex h-full w-full cursor-pointer items-center justify-center border-b text-sm capitalize',
+                            { 'border-none': idx === types.length - 1 },
+                            {
+                              'text-primary pointer-events-none font-medium': type === selectedType,
+                            },
+                          )}
+                        >
+                          {type}
+                        </button>
+                      ))}
+                    </m.div>
+                  )}
+                </AnimatePresence>
               </div>
               <div className="relative">
                 <input className="border-primary min-w-60 rounded-lg border-[0.5px] py-3 pr-4 pl-12" />
