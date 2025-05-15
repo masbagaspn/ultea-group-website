@@ -2,8 +2,33 @@ import Section from '@components/layout/section'
 import heroSectionContents from '@static/tentang-kami/hero'
 import { motion as m, useScroll, useTransform } from 'motion/react'
 import * as React from 'react'
+import { useMediaQuery } from 'usehooks-ts'
 
 const HeroSection = () => {
+  const isDesktop = useMediaQuery('(min-width: 1024px)')
+
+  if (isDesktop) return <DesktopHeroSection />
+
+  return <MobileHeroSection />
+}
+
+const MobileHeroSection = () => {
+  return (
+    <Section className="flex flex-col gap-10">
+      <div className="text-primary flex w-full flex-col gap-2">
+        <h2 className="section-title">{heroSectionContents.headline}</h2>
+        <p className="headline">{heroSectionContents.subheadline}</p>
+      </div>
+      <div className="text-primary flex flex-col gap-6 text-sm font-light">
+        {heroSectionContents.contents.map((text) => (
+          <p key={`about-hero-section-${text}`}>{text}</p>
+        ))}
+      </div>
+    </Section>
+  )
+}
+
+const DesktopHeroSection = () => {
   const containerRef = React.useRef(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,

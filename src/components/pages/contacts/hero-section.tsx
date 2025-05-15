@@ -4,8 +4,8 @@ import heroSectionContents from '@static/contacts/hero-section'
 const HeroSection = () => {
   return (
     <Section className="text-primary flex w-full flex-col gap-6">
-      <h2 className="font-light uppercase">{heroSectionContents.headline}</h2>
-      <p className="w-2/3 text-5xl">{heroSectionContents.subheadline}</p>
+      <h2 className="section-title">{heroSectionContents.headline}</h2>
+      <p className="headline w-full lg:w-2/3">{heroSectionContents.subheadline}</p>
     </Section>
   )
 }

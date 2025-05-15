@@ -2,8 +2,41 @@ import Section from '@components/layout/section'
 import firstSectionContents from '@static/tentang-kami/first'
 import { motion as m, useScroll, useTransform } from 'motion/react'
 import * as React from 'react'
+import { useMediaQuery } from 'usehooks-ts'
 
 const FirstSection = () => {
+  const isDesktop = useMediaQuery('(min-width: 1024px)')
+
+  if (isDesktop) return <DesktopFirstSection />
+
+  return <MobileFirstSection />
+}
+
+const MobileFirstSection = () => {
+  return (
+    <Section>
+      <div className="bg-primary flex flex-col gap-10 rounded-lg p-6">
+        <div className="text-tertiary flex w-full flex-col gap-2">
+          <h3 className="headline inline-flex flex-col">
+            {firstSectionContents.subheadline.split(': ').map((text, idx) => (
+              <span key={`about-first-headline${idx}`}>
+                {text}
+                {idx === 0 && ': '}
+              </span>
+            ))}
+          </h3>
+        </div>
+        <div className="flex flex-col gap-6 text-sm font-light text-white">
+          {firstSectionContents.contents.map((text) => (
+            <p key={`about-hero-section-${text}`}>{text}</p>
+          ))}
+        </div>
+      </div>
+    </Section>
+  )
+}
+
+const DesktopFirstSection = () => {
   const containerRef = React.useRef(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,

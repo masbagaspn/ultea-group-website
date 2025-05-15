@@ -4,9 +4,9 @@ import heroSectionContents from '@static/produk/hero-section'
 const HeroSection = () => {
   return (
     <Section>
-      <div className="text-primary flex w-full flex-col gap-6">
-        <h2 className="font-light uppercase">{heroSectionContents.headline}</h2>
-        <p className="col-span-2 text-5xl">{heroSectionContents.subheadline}</p>
+      <div className="text-primary flex w-full flex-col gap-3 lg:gap-6">
+        <h2 className="section-title">{heroSectionContents.headline}</h2>
+        <p className="headline col-span-2">{heroSectionContents.subheadline}</p>
       </div>
     </Section>
   )
