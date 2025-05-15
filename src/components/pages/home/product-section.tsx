@@ -19,7 +19,7 @@ const ProductSection = () => {
 
 const ProductsContainer = () => {
   return (
-    <div className="flex grid grid-cols-2 flex-col gap-6 lg:grid-cols-4 lg:gap-10">
+    <div className="grid grid-cols-2 gap-6 lg:grid-cols-4 lg:gap-10">
       {productSectionContents.contents.map((product) => (
         <div
           key={`home-products-${product.name}`}
