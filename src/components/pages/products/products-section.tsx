@@ -9,7 +9,7 @@ const ProductSection = () => {
   return (
     <Section className="grid grid-cols-2 gap-x-3 gap-y-6 lg:grid-cols-4 lg:gap-10">
       {products.map((product) => (
-        <div className="flex flex-col gap-3 lg:gap-6">
+        <div key={`products-item-card-${product.name}`} className="flex flex-col gap-3 lg:gap-6">
           <Link
             to="/produk/$produkId"
             params={{ produkId: product.id }}
