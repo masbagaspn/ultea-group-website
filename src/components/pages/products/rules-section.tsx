@@ -10,11 +10,11 @@ const RuleSection = () => {
   if (!product) return null
 
   return (
-    <Section className="flex gap-20 px-40 py-10">
-      <h2 className="w-42 text-lg font-light text-neutral-500 uppercase">aturan konsumsi</h2>
+    <Section className="flex flex-col gap-6 lg:flex-row lg:gap-20 lg:px-40 lg:py-10">
+      <h2 className="section-title w-42 text-neutral-500">aturan konsumsi</h2>
       <ul className="flex flex-1 flex-col gap-6">
         {product.rules.map((rule) => (
-          <li key={`product-details-${rule}`} className="text-xl">
+          <li key={`product-details-${rule}`} className="text-base lg:text-xl">
             {rule}
           </li>
         ))}

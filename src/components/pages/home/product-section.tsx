@@ -21,26 +21,25 @@ const ProductsContainer = () => {
   return (
     <div className="grid grid-cols-2 gap-6 lg:grid-cols-4 lg:gap-10">
       {productSectionContents.contents.map((product) => (
-        <div
+        <Link
           key={`home-products-${product.name}`}
-          className="flex flex-col gap-2 lg:flex-col lg:gap-4"
+          to="/produk/$produkId"
+          params={{ produkId: product.id }}
+          className="group"
         >
-          <img
-            src={product.imageProduct}
-            className="bg-tertiary aspect-square h-auto w-full rounded object-cover lg:rounded-xl"
-          />
-          <div className="flex w-full items-center justify-between">
-            <Link
-              to="/produk/$produkId"
-              params={{ produkId: product.id }}
-              resetScroll={false}
-              className="group text-tertiary inline-flex w-full items-center justify-between text-base capitalize transition hover:opacity-70 lg:text-3xl"
-            >
-              {product.name}
-              <ArrowRight className="w-4 transition group-hover:-rotate-45 lg:w-8" />
-            </Link>
-          </div>
-        </div>
+          <article className="flex flex-col gap-2 lg:flex-col lg:gap-4">
+            <img
+              src={product.imageProduct}
+              className="bg-tertiary aspect-square h-auto w-full rounded object-cover lg:rounded-xl"
+            />
+            <div className="flex w-full items-center justify-between">
+              <h3 className="text-tertiary inline-flex w-full items-center justify-between text-base capitalize transition group-hover:opacity-70 lg:text-3xl">
+                {product.name}
+                <ArrowRight className="w-4 transition group-hover:-rotate-45 lg:w-8" />
+              </h3>
+            </div>
+          </article>
+        </Link>
       ))}
     </div>
   )

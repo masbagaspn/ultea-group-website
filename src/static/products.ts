@@ -37,7 +37,7 @@ const products = [
     imageProduct: '/assets/products/product-ulteadrink-transparent.png',
     description:
       'Ultea Drink dibuat dari teh hijau (Camellia sinensis) asli dan secang. Teh diekstraksi sedemikian rupa sehingga memiliki kandungan epigalokatekingalat (EGCG) yang tinggi dan penggunaan secang selain menambahkan rasa dan bau aromatik pada teh ini, berguna juga untuk meningkatkan efektivitas antioksidan pada tiap sachetnya. EGCG yang dipadukan secang merupakan produk paling terbaru dari kami yang telah lulus pengujian dan berbasis jurnal ilmiah yang telah terbukti sangat ampuh bagi penyembuhan dan pencegahan kanker, diabetes melitus, hipertensi, kolesterol, dan penyakit degeneratif lainnya. Ultea Drink juga bermanfaat untuk pencegahan dan menjaga organ tubuh seperti kesuburan pria dan wanita, menjaga liver, dan mencegah penuaan.',
-    items: '30 Sachet (@2gram)',
+    items: '30 Sachet',
     price: 100000,
     benefits: [
       'Membantu menghambat dan mencegah pertumbuhan sel, seperti kanker payudara, kanker serviks, kanker prostat, kanker paru-paru, dan berbagai jenis kanker lainnya',
