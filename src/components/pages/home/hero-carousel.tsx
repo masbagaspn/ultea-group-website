@@ -18,9 +18,9 @@ const HeroCarousel = () => {
   return (
     <div
       className={cn(
-        'relative aspect-video h-auto w-full overflow-hidden',
-        'flex-1 rounded-lg',
-        'lg:h-[100vh] lg:w-full lg:rounded-2xl',
+        'relative aspect-video overflow-hidden',
+        'h-auto w-full rounded-lg',
+        'lg:h-[100dvh] lg:w-auto lg:rounded-2xl',
       )}
     >
       <AnimatePresence initial={false} custom={direction} mode="popLayout">
