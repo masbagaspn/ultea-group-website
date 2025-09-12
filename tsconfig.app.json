@@ -23,5 +23,5 @@
     "noFallthroughCasesInSwitch": true
   },
   "extends": "./tsconfig.json",
-  "include": ["src"]
+  "include": ["src", "src/routes/tentang-kami/-components/history/desktop/left/Scrollbar.tsx"]
 }

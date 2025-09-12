@@ -1,8 +1,14 @@
 @import 'tailwindcss';
 
-@theme {
-  --font-sans: 'DM Sans', 'sans-serif';
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/DM_Sans/DM_Sans-Regular.ttf') format('truetype');
+}
 
+@theme {
   --color-green-900: #0f1e19;
   --color-green-800: #0e3327;
   --color-green-700: #0d4734;
@@ -19,8 +25,21 @@
 }
 
 @layer base {
-  * {
-    @apply font-sans;
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply m-0 p-0 font-sans bg-white text-black;
+    font-family: 'DM Sans', sans-serif;
+  }
+  a {
+    @apply text-inherit no-underline;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply m-0 p-0;
+  }
+  p {
+    @apply m-0 p-0;
   }
 }
 

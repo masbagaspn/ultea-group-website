@@ -1,4 +1,4 @@
-import { navMenuItems } from '@static/nav-menu-items'
+import NAV_MENU_ITEMS from '@static/navigations'
 import { Link } from '@tanstack/react-router'
 
 const Footer = () => {
@@ -12,14 +12,14 @@ const Footer = () => {
         <div className="flex flex-col gap-4 lg:gap-10">
           <h2 className="text-sm lg:text-base">Sitemap</h2>
           <ul className="grid grid-cols-2 gap-2 text-sm font-light capitalize lg:flex lg:flex-col lg:gap-4 lg:text-base">
-            {navMenuItems.map(
-              (item) =>
-                item.name !== 'beranda' && (
+            {NAV_MENU_ITEMS.map(
+              (ITEM) =>
+                ITEM.NAME !== 'beranda' && (
                   <li
-                    key={`footer-nav-${item.name}`}
+                    key={`footer-nav-${ITEM.NAME}`}
                     className="text-neutral-300 transition hover:text-white"
                   >
-                    <Link to={item.path}>{item.name}</Link>
+                    <Link to={ITEM.PATH}>{ITEM.NAME}</Link>
                   </li>
                 ),
             )}

@@ -11,27 +11,15 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as TentangKamiImport } from './routes/tentang-kami'
-import { Route as KontakImport } from './routes/kontak'
 import { Route as IndexImport } from './routes/index'
+import { Route as TentangKamiIndexImport } from './routes/tentang-kami/index'
 import { Route as ProdukIndexImport } from './routes/produk/index'
+import { Route as KontakIndexImport } from './routes/kontak/index'
 import { Route as InformasiIndexImport } from './routes/informasi/index'
 import { Route as ProdukProdukIdImport } from './routes/produk/$produkId'
 import { Route as InformasiInformasiIdImport } from './routes/informasi/$informasiId'
 
 // Create/Update Routes
-
-const TentangKamiRoute = TentangKamiImport.update({
-  id: '/tentang-kami',
-  path: '/tentang-kami',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const KontakRoute = KontakImport.update({
-  id: '/kontak',
-  path: '/kontak',
-  getParentRoute: () => rootRoute,
-} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
@@ -39,9 +27,21 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const TentangKamiIndexRoute = TentangKamiIndexImport.update({
+  id: '/tentang-kami/',
+  path: '/tentang-kami/',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const ProdukIndexRoute = ProdukIndexImport.update({
   id: '/produk/',
   path: '/produk/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const KontakIndexRoute = KontakIndexImport.update({
+  id: '/kontak/',
+  path: '/kontak/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -74,20 +74,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/kontak': {
-      id: '/kontak'
-      path: '/kontak'
-      fullPath: '/kontak'
-      preLoaderRoute: typeof KontakImport
-      parentRoute: typeof rootRoute
-    }
-    '/tentang-kami': {
-      id: '/tentang-kami'
-      path: '/tentang-kami'
-      fullPath: '/tentang-kami'
-      preLoaderRoute: typeof TentangKamiImport
-      parentRoute: typeof rootRoute
-    }
     '/informasi/$informasiId': {
       id: '/informasi/$informasiId'
       path: '/informasi/$informasiId'
@@ -109,11 +95,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InformasiIndexImport
       parentRoute: typeof rootRoute
     }
+    '/kontak/': {
+      id: '/kontak/'
+      path: '/kontak'
+      fullPath: '/kontak'
+      preLoaderRoute: typeof KontakIndexImport
+      parentRoute: typeof rootRoute
+    }
     '/produk/': {
       id: '/produk/'
       path: '/produk'
       fullPath: '/produk'
       preLoaderRoute: typeof ProdukIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/tentang-kami/': {
+      id: '/tentang-kami/'
+      path: '/tentang-kami'
+      fullPath: '/tentang-kami'
+      preLoaderRoute: typeof TentangKamiIndexImport
       parentRoute: typeof rootRoute
     }
   }
@@ -123,84 +123,84 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/kontak': typeof KontakRoute
-  '/tentang-kami': typeof TentangKamiRoute
   '/informasi/$informasiId': typeof InformasiInformasiIdRoute
   '/produk/$produkId': typeof ProdukProdukIdRoute
   '/informasi': typeof InformasiIndexRoute
+  '/kontak': typeof KontakIndexRoute
   '/produk': typeof ProdukIndexRoute
+  '/tentang-kami': typeof TentangKamiIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/kontak': typeof KontakRoute
-  '/tentang-kami': typeof TentangKamiRoute
   '/informasi/$informasiId': typeof InformasiInformasiIdRoute
   '/produk/$produkId': typeof ProdukProdukIdRoute
   '/informasi': typeof InformasiIndexRoute
+  '/kontak': typeof KontakIndexRoute
   '/produk': typeof ProdukIndexRoute
+  '/tentang-kami': typeof TentangKamiIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/kontak': typeof KontakRoute
-  '/tentang-kami': typeof TentangKamiRoute
   '/informasi/$informasiId': typeof InformasiInformasiIdRoute
   '/produk/$produkId': typeof ProdukProdukIdRoute
   '/informasi/': typeof InformasiIndexRoute
+  '/kontak/': typeof KontakIndexRoute
   '/produk/': typeof ProdukIndexRoute
+  '/tentang-kami/': typeof TentangKamiIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/kontak'
-    | '/tentang-kami'
     | '/informasi/$informasiId'
     | '/produk/$produkId'
     | '/informasi'
+    | '/kontak'
     | '/produk'
+    | '/tentang-kami'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/kontak'
-    | '/tentang-kami'
     | '/informasi/$informasiId'
     | '/produk/$produkId'
     | '/informasi'
+    | '/kontak'
     | '/produk'
+    | '/tentang-kami'
   id:
     | '__root__'
     | '/'
-    | '/kontak'
-    | '/tentang-kami'
     | '/informasi/$informasiId'
     | '/produk/$produkId'
     | '/informasi/'
+    | '/kontak/'
     | '/produk/'
+    | '/tentang-kami/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  KontakRoute: typeof KontakRoute
-  TentangKamiRoute: typeof TentangKamiRoute
   InformasiInformasiIdRoute: typeof InformasiInformasiIdRoute
   ProdukProdukIdRoute: typeof ProdukProdukIdRoute
   InformasiIndexRoute: typeof InformasiIndexRoute
+  KontakIndexRoute: typeof KontakIndexRoute
   ProdukIndexRoute: typeof ProdukIndexRoute
+  TentangKamiIndexRoute: typeof TentangKamiIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  KontakRoute: KontakRoute,
-  TentangKamiRoute: TentangKamiRoute,
   InformasiInformasiIdRoute: InformasiInformasiIdRoute,
   ProdukProdukIdRoute: ProdukProdukIdRoute,
   InformasiIndexRoute: InformasiIndexRoute,
+  KontakIndexRoute: KontakIndexRoute,
   ProdukIndexRoute: ProdukIndexRoute,
+  TentangKamiIndexRoute: TentangKamiIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -214,22 +214,16 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/kontak",
-        "/tentang-kami",
         "/informasi/$informasiId",
         "/produk/$produkId",
         "/informasi/",
-        "/produk/"
+        "/kontak/",
+        "/produk/",
+        "/tentang-kami/"
       ]
     },
     "/": {
       "filePath": "index.tsx"
-    },
-    "/kontak": {
-      "filePath": "kontak.tsx"
-    },
-    "/tentang-kami": {
-      "filePath": "tentang-kami.tsx"
     },
     "/informasi/$informasiId": {
       "filePath": "informasi/$informasiId.tsx"
@@ -240,8 +234,14 @@ export const routeTree = rootRoute
     "/informasi/": {
       "filePath": "informasi/index.tsx"
     },
+    "/kontak/": {
+      "filePath": "kontak/index.tsx"
+    },
     "/produk/": {
       "filePath": "produk/index.tsx"
+    },
+    "/tentang-kami/": {
+      "filePath": "tentang-kami/index.tsx"
     }
   }
 }

@@ -1,55 +1,63 @@
-const rumahUltea = {
-  name: 'Rumah Ultea',
-  contents: [
+const RUMAH_ULTEA = {
+  NAME: 'Rumah Ultea',
+  CONTENTS: [
     'Jl. Pandugo Baru XIII Blok R no. 41',
     'Kel. Penjaringan Sari, Kec. Rungkut',
     'Surabaya, 60297',
   ],
-  links: 'https://maps.app.goo.gl/FJf5J8KpbPSBFdvN9',
+  LINKS: 'https://maps.app.goo.gl/FJf5J8KpbPSBFdvN9',
 }
 
-const socialMedia = {
-  name: 'Social Media',
-  contents: [
+const SOCIAL_MEDIA = {
+  NAME: 'Social Media',
+  CONTENTS: [
     {
-      name: 'Whatsapp',
-      links: 'https://wa.me/+6281235636878',
-      target: '081235636878',
-      person: 'Mbak Dewi',
+      NAME: 'Whatsapp',
+      LINKS: 'https://wa.me/+6281235636878',
+      TARGET: '081235636878',
+      PERSON: 'Mbak Dewi',
     },
     {
-      name: 'Instagram',
-      links: 'https://instagram.com/@ulteaofficial',
-      target: '@ulteaofficial',
-      person: undefined,
+      NAME: 'Instagram',
+      LINKS: 'https://instagram.com/@ulteaofficial',
+      TARGET: '@ulteaofficial',
+      PERSON: undefined,
     },
     {
-      name: 'Tiktok',
-      links: 'https://tiktok.com/@ulteaofficial',
-      target: '@ulteaofficial',
-      person: undefined,
+      NAME: 'Tiktok',
+      LINKS: 'https://tiktok.com/@ulteaofficial',
+      TARGET: '@ulteaofficial',
+      PERSON: undefined,
     },
   ],
 }
 
-const ecommerce = {
-  name: 'E-Commerce',
-  contents: [
+const E_COMMERCE = {
+  NAME: 'E-Commerce',
+  CONTENTS: [
     {
-      name: 'Shopee',
-      links: 'https://shopee.co.id/digdaya.id',
-      target: undefined,
-      person: undefined,
+      NAME: 'Shopee',
+      LINKS: 'https://shopee.co.id/digdaya.id',
+      TARGET: undefined,
+      PERSON: undefined,
     },
     {
-      name: 'Tokopedia',
-      links: 'https://tokopedia.com/digdaya.id',
-      target: undefined,
-      person: undefined,
+      NAME: 'Tokopedia',
+      LINKS: 'https://tokopedia.com/digdaya.id',
+      TARGET: undefined,
+      PERSON: undefined,
     },
   ],
 }
 
-const contacts = { rumahUltea, socialMedia, ecommerce }
+const CONTACT_CONTENTS = {
+  HEADLINE: 'kontak kami',
+  SUBHEADLINE: 'Hubungi kami untuk informasi dan konsultasi lebih lanjut!',
+  CONTACTS: {
+    RUMAH_ULTEA,
+    SOCIAL_MEDIA,
+    E_COMMERCE,
+  },
+}
 
-export default contacts
+export default CONTACT_CONTENTS

@@ -1,4 +1,4 @@
-const products = [
+const PRODUCTS = [
   {
     id: 'ultea-kapsul',
     name: 'ultea kapsul',
@@ -126,4 +126,11 @@ const products = [
   },
 ]
 
-export default products
+const PRODUCTS_CONTENTS = {
+  HEADLINE: 'Produk Kami',
+  SUBHEADLINE:
+    'Produk herbal berkualitas, didukung riset ilmiah untuk kesehatan alami yang optimal. Pilih sekarang untuk hidup lebih sehat!',
+  PRODUCTS: PRODUCTS,
+}
+
+export default PRODUCTS_CONTENTS
