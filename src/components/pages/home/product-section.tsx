@@ -1,9 +1,27 @@
+import { ArrowRight } from 'lucide-react'
+import { Link } from '@tanstack/react-router'
+
 import Section from '@components/layout/section'
 import { productSectionContents } from '@static/home/product-section'
-import { Link } from '@tanstack/react-router'
-import { ArrowRight } from 'lucide-react'
 
-const ProductSection = () => {
+import type { PaginationResponse } from '@models/payload'
+import type { Product } from '@models/product'
+
+type ProductSectionProps = {
+  products: PaginationResponse<Product>
+}
+
+type ProductContainerProps = {
+  products: Product[]
+}
+
+type ProductCardProps = {
+  product: Product
+}
+
+const ProductSection = ({ products }: ProductSectionProps) => {
+  if(!products.data.length) return null
+
   return (
     <Section>
       <div className="bg-primary flex flex-col gap-20 rounded-lg p-4 lg:rounded-2xl lg:p-10">
@@ -11,17 +29,23 @@ const ProductSection = () => {
           <h2 className="section-title col-span-2">{productSectionContents.headline}</h2>
           <p className="headline col-span-3">{productSectionContents.subheadline}</p>
         </div>
-        <ProductsContainer />
+        <ProductsContainer products={products.data as Product[]}/>
       </div>
     </Section>
   )
 }
 
-const ProductsContainer = () => {
+const ProductsContainer = ({products}: ProductContainerProps) => {
   return (
     <div className="grid grid-cols-2 gap-6 lg:grid-cols-4 lg:gap-10">
-      {productSectionContents.contents.map((product) => (
-        <Link
+      {products.map((product) => <ProductCard key={product.id} product={product} />)}
+    </div>
+  )
+}
+
+const ProductCard = ({product}: ProductCardProps) => {
+  return (
+    <Link
           key={`home-products-${product.name}`}
           to="/produk/$produkId"
           params={{ produkId: product.id }}
@@ -29,7 +53,7 @@ const ProductsContainer = () => {
         >
           <article className="flex flex-col gap-2 lg:flex-col lg:gap-4">
             <img
-              src={product.imageProduct}
+              src={product.imageUrl}
               className="bg-tertiary aspect-square h-auto w-full rounded object-cover lg:rounded-xl"
             />
             <div className="flex w-full items-center justify-between">
@@ -40,8 +64,6 @@ const ProductsContainer = () => {
             </div>
           </article>
         </Link>
-      ))}
-    </div>
   )
 }
 

@@ -1,14 +1,19 @@
-import Section from '@components/layout/section'
-import { convertToPrice } from '@lib/utils'
-import products from '@static/products'
-import { Link } from '@tanstack/react-router'
 import { ArrowRight } from 'lucide-react'
 import { motion as m } from 'motion/react'
+import { Link } from '@tanstack/react-router'
 
-const ProductSection = () => {
+import Section from '@components/layout/section'
+import type { Product } from '@models/product'
+import { convertToPrice } from '@lib/utils'
+
+type ProductSectionProps = {
+  products: Product[]
+}
+
+const ProductSection = ({ products }: ProductSectionProps) => {
   return (
     <Section className="grid grid-cols-2 gap-x-3 gap-y-6 lg:grid-cols-4 lg:gap-10">
-      {products.map((product) => (
+      {products.map((product: Product) => (
         <div key={`products-item-card-${product.name}`} className="flex flex-col gap-3 lg:gap-6">
           <Link
             to="/produk/$produkId"
@@ -17,7 +22,7 @@ const ProductSection = () => {
             className="flex flex-col gap-3 lg:gap-6"
           >
             <img
-              src={product.imageProduct}
+              src={product.imageUrl}
               className="bg-tertiary aspect-square h-auto w-full rounded-xl object-cover"
             />
             <div className="flex flex-col gap-1">
@@ -31,7 +36,7 @@ const ProductSection = () => {
                 </m.div>
               </div>
               <div className="flex w-full flex-col justify-between text-sm text-neutral-500 lg:flex-row lg:text-base">
-                <p>{product.items}</p>
+                <p>{product.contents}</p>
                 <p>{convertToPrice(product.price)}</p>
               </div>
             </div>

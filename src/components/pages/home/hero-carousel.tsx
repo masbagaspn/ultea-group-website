@@ -1,19 +1,24 @@
-import useCarousel from '@hooks/useCarousel'
-import { cn } from '@lib/utils'
-import heroSectionContents from '@static/home/hero-section'
-import { Link } from '@tanstack/react-router'
+import * as React from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { AnimatePresence, motion as m } from 'motion/react'
-import * as React from 'react'
+import { Link } from '@tanstack/react-router'
 
-const HeroCarousel = () => {
-  const banners = heroSectionContents.contents
+import useCarousel from '@hooks/useCarousel'
+import { cn } from '@lib/utils'
+
+type HeroCarouselProps = {
+  banners: any
+}
+
+const HeroCarousel = ({ banners }: HeroCarouselProps) => {
   const { index, direction, paginate, startAutoPlay, clearAutoPlay } = useCarousel(banners.length)
 
   React.useEffect(() => {
     startAutoPlay()
     return clearAutoPlay
   }, [])
+  
+  if(!banners.length) return null
 
   return (
     <div
@@ -25,7 +30,7 @@ const HeroCarousel = () => {
     >
       <AnimatePresence initial={false} custom={direction} mode="popLayout">
         <m.div
-          key={`hero-banner-${banners[index].image}`}
+          key={`hero-banner-${banners[index].imageUrl}`}
           className="flex h-full w-full overflow-hidden rounded-lg lg:rounded-2xl"
           custom={direction}
           initial={{ x: direction > 0 ? '100%' : '-100%' }}
@@ -47,10 +52,10 @@ const HeroCarousel = () => {
         )}
       >
         <div className="flex w-full justify-between gap-2 lg:justify-start lg:gap-3">
-          {banners[index].cta.map((action) => (
+          {banners[index].ctas.map((action: { name: string, link: string}) => (
             <Link
-              key={`hero-carousel-cta-${banners[index].id}-${action.text}`}
-              to={action.links}
+              key={`hero-carousel-cta-${banners[index].id}-${action.name}`}
+              to={action.link}
               className={cn(
                 'text-primary rounded-full bg-white font-medium tracking-tighter capitalize transition hover:bg-white/70',
                 'w-full px-3 py-1.5 text-center text-sm',
@@ -59,7 +64,7 @@ const HeroCarousel = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {action.text}
+              {action.name}
             </Link>
           ))}
         </div>
