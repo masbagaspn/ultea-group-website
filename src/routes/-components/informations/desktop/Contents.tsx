@@ -16,7 +16,10 @@ const InformationContentsDesktop = ({ informations }: InformationContentsDesktop
 
   const handleSelectInformation = (information: Information) => {
     if (information.title === selectedInformation.title) {
-      navigate({ to: '/informasi/$informasiId', params: { informasiId: information.title } })
+      navigate({
+        to: '/informasi/$slug',
+        params: { slug: information.slug },
+      })
     } else {
       setSelectedInformation(information)
     }

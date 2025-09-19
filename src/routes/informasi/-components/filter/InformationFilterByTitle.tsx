@@ -1,14 +1,16 @@
+import { useQuery } from '@tanstack/react-query'
 import { useNavigate } from '@tanstack/react-router'
 import { Search } from 'lucide-react'
 import * as React from 'react'
 
 import { getAllInformations } from '@api/informations.api'
-import { cn } from '@lib/utils'
-import { InformationSearchLoaderDeps, Route } from '@routes/informasi/index'
-import { useQuery } from '@tanstack/react-query'
-import List from './List'
 
-const TitleFilter = () => {
+import InformationFilterByTitleList from '@routes/informasi/-components/lists/InformationFilterByTItleList'
+import { InformationSearchLoaderDeps, Route } from '@routes/informasi/index'
+
+import { cn } from '@lib/utils'
+
+const InformationFilterByTitle = () => {
   const filter = Route.useSearch() as InformationSearchLoaderDeps
 
   const [show, setShow] = React.useState(false)
@@ -75,7 +77,7 @@ const TitleFilter = () => {
   }, [titleInput])
 
   const { data, isLoading } = useQuery({
-    queryKey: ['informations', `type-${filter.type}`, `title-${filter.title}`],
+    queryKey: ['informations', `type-${filter.type}`, `title-${debouncedSearch}`],
     queryFn: async () => {
       const response = await getAllInformations(1, 3, debouncedSearch, filter.type)
       return response
@@ -106,9 +108,14 @@ const TitleFilter = () => {
         />
         <Search className="absolute top-2 left-2 w-4 lg:top-3 lg:left-2.5 lg:w-6" strokeWidth={1} />
       </form>
-      {show && <List informations={data.data} isLoading={!debouncedSearch.length || isLoading} />}
+      {show && (
+        <InformationFilterByTitleList
+          informations={data.data}
+          isLoading={!debouncedSearch.length || isLoading}
+        />
+      )}
     </div>
   )
 }
 
-export default TitleFilter
+export default InformationFilterByTitle

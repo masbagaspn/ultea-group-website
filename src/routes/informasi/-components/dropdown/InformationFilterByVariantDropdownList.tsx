@@ -1,17 +1,21 @@
-import { cn } from '@lib/utils'
 import { InformationVariant } from '@models/information'
+
+import { cn } from '@lib/utils'
 
 import { INFORMATION_VARIANTS } from '@static/information'
 
-type DropdownListProps = {
+type InformationFilterByVariantDropdownListProps = {
   active: InformationVariant
   handleSelect: (variant: InformationVariant) => void
 }
 
-const DropdownList = ({ active, handleSelect }: DropdownListProps) => {
+const InformationFilterByVariantDropdownList = ({
+  active,
+  handleSelect,
+}: InformationFilterByVariantDropdownListProps) => {
   return INFORMATION_VARIANTS.map((variant, idx) => (
     <button
-      onClick={() => handleSelect(variant)}
+      onClick={() => handleSelect(variant as InformationVariant)}
       key={`information-type-filter-${variant.name}`}
       className={cn(
         'text-primary/70 hover:text-primary border-primary inline-flex h-full w-full cursor-pointer items-center justify-center border-b capitalize',
@@ -27,4 +31,4 @@ const DropdownList = ({ active, handleSelect }: DropdownListProps) => {
   ))
 }
 
-export default DropdownList
+export default InformationFilterByVariantDropdownList

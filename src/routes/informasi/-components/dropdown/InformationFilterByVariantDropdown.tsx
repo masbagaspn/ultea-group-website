@@ -2,13 +2,13 @@ import { useNavigate } from '@tanstack/react-router'
 import { AnimatePresence, motion as m } from 'motion/react'
 
 import { InformationSearchLoaderDeps, Route } from '@routes/informasi'
-import DropdownList from '@routes/informasi/-components/filter/variants/DropdownList'
+import InformationFilterByVariantDropdownList from '@routes/informasi/-components/dropdown/InformationFilterByVariantDropdownList'
 
 import { InformationVariant } from '@models/information'
 
 import { cn } from '@lib/utils'
 
-type DropdownProps = {
+type InformationFilterByVariantDropdownProps = {
   active: InformationVariant
   state: {
     show: boolean
@@ -16,7 +16,10 @@ type DropdownProps = {
   }
 }
 
-const Dropdown = ({ active, state }: DropdownProps) => {
+const InformationFilterByVariantDropdown = ({
+  active,
+  state,
+}: InformationFilterByVariantDropdownProps) => {
   const navigate = useNavigate({ from: Route.fullPath })
 
   const handleSelectType = (type: InformationVariant) => {
@@ -44,11 +47,11 @@ const Dropdown = ({ active, state }: DropdownProps) => {
             'lg:top-14 lg:w-60 lg:rounded-lg',
           )}
         >
-          <DropdownList active={active} handleSelect={handleSelectType} />
+          <InformationFilterByVariantDropdownList active={active} handleSelect={handleSelectType} />
         </m.div>
       )}
     </AnimatePresence>
   )
 }
 
-export default Dropdown
+export default InformationFilterByVariantDropdown

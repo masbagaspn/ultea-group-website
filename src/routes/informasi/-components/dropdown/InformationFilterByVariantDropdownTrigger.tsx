@@ -1,7 +1,9 @@
-import { cn } from '@lib/utils'
-import { InformationVariant } from '@models/information'
 import { ChevronDown } from 'lucide-react'
 import { SetStateAction } from 'react'
+
+import { InformationVariant } from '@models/information'
+
+import { cn } from '@lib/utils'
 
 type ButtonProp = {
   active: InformationVariant
@@ -11,7 +13,7 @@ type ButtonProp = {
   }
 }
 
-const Trigger = ({ active, state }: ButtonProp) => {
+const InformationFilterByVariantDropdownTrigger = ({ active, state }: ButtonProp) => {
   return (
     <button
       onClick={() => state.setShow(!state.show)}
@@ -34,4 +36,4 @@ const Trigger = ({ active, state }: ButtonProp) => {
   )
 }
 
-export default Trigger
+export default InformationFilterByVariantDropdownTrigger

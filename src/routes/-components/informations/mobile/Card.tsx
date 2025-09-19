@@ -15,8 +15,9 @@ const cardVariants = {
 
 const InformationCard = ({ information, total, index }: InformationCardProps) => {
   const isLast = index === total - 1
+  const category = JSON.parse(information.categories as string)[0]
   return (
-    <Link to="/informasi/$informasiId" params={{ informasiId: information.title }}>
+    <Link to="/informasi/$slug" params={{ slug: information.slug }}>
       <article
         className={cn(
           'text-primary flex flex-col gap-6 py-6 lg:border-none',
@@ -29,7 +30,7 @@ const InformationCard = ({ information, total, index }: InformationCardProps) =>
         />
         <div className="flex flex-col gap-1 lg:gap-3">
           <div className="flex w-full justify-between text-xs font-light text-black lg:text-base">
-            <span className="font-normal uppercase">{information.categories[0]}</span>
+            <span className="font-normal uppercase">{category.name}</span>
             <span>{information.type}</span>
           </div>
           <h3 className="text-xl font-medium text-nowrap text-ellipsis lg:text-2xl">

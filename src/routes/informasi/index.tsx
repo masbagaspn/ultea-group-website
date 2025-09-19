@@ -5,8 +5,8 @@ import { getAllInformations } from '@api/informations.api'
 import PageLayout from '@components/layout/PageLayout'
 import Section from '@components/layout/Section'
 
-import Header from '@routes/informasi/-components/Header'
-import List from '@routes/informasi/-components/List'
+import InformationPageHeader from '@routes/informasi/-components/layout/InformationHeader'
+import InformationList from '@routes/informasi/-components/lists/InformationList'
 
 export type InformationSearchLoaderDeps = {
   page?: number
@@ -23,7 +23,7 @@ export const Route = createFileRoute('/informasi/')({
     type: search.type,
     title: search.title,
   }),
-  loader: async ({ deps: { page, pageSize, title, type } }) => {
+  loader: async ({ deps: { page, pageSize = 9, title, type } }) => {
     const response = await getAllInformations(page, pageSize, title, type)
 
     return response
@@ -38,8 +38,8 @@ function RouteComponent() {
   return (
     <PageLayout>
       <Section className="flex flex-col gap-10 lg:gap-20">
-        <Header />
-        <List informations={data.data} />
+        <InformationPageHeader />
+        <InformationList informations={data.data} />
       </Section>
     </PageLayout>
   )

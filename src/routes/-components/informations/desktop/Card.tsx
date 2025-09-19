@@ -2,6 +2,7 @@ import { AnimatePresence, motion as m } from 'motion/react'
 
 import { Information } from '@models/information'
 
+import { findVariantByValue } from '@lib/helper'
 import { cn } from '@lib/utils'
 
 type InformationCardProps = {
@@ -17,7 +18,8 @@ const cardVariants = {
 
 const InformationCard = ({ information, handleSelect, selected }: InformationCardProps) => {
   const isActive = selected.title === information.title
-
+  const type = findVariantByValue(information.type)
+  const category = JSON.parse(information.categories as string)[0]
   return (
     <m.article
       onClick={() => handleSelect(information)}
@@ -34,11 +36,11 @@ const InformationCard = ({ information, handleSelect, selected }: InformationCar
         className="z-10 flex w-full items-center justify-between gap-3 font-light text-white"
         layout
       >
-        <m.span className="z-10">{information.type}</m.span>
+        <m.span className="z-10 capitalize">{type.name}</m.span>
         <AnimatePresence>
           {isActive && <m.div className="h-[1px] flex-1 bg-white" />}
         </AnimatePresence>
-        <m.span className="z-10">{information.categories[0]}</m.span>
+        <m.span className="z-10 capitalize">{category.name}</m.span>
       </m.div>
 
       <m.h3 className="z-10 w-full text-2xl font-medium will-change-transform">

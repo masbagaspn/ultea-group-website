@@ -1,7 +1,26 @@
-import { InformationVariant } from '@models/information'
+import { INFORMATION_VARIANTS } from '@static/information'
 
-export function findVariantByValue(value: number, variants: InformationVariant[]) {
-  const variant = variants.find((variant) => variant.value === value)
+export function findVariantByValue(value: number) {
+  const variant = INFORMATION_VARIANTS.find((variant) => variant.value === value)
 
-  return variant ?? variants[0]
+  return variant ?? INFORMATION_VARIANTS[0]
+}
+
+export function findVariantByName(name: string) {
+  const variant = INFORMATION_VARIANTS.find((variant) => variant.name === name)
+
+  return variant
+}
+
+export function formatISODate(isoString: string) {
+  const date = new Date(isoString)
+
+  const options: Intl.DateTimeFormatOptions = {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }
+
+  return date.toLocaleDateString('id-ID', options)
 }

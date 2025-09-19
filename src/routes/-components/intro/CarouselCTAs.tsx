@@ -7,9 +7,11 @@ type CarouseCTAsProps = {
 }
 
 const CarouselCTAs = ({ active }: CarouseCTAsProps) => {
+  const ctas = JSON.parse(active.ctas)
+
   return (
     <div className="flex w-full justify-between gap-2 lg:justify-start lg:gap-3">
-      {active.ctas.map((action: { name: string; link: string }) => (
+      {ctas.map((action: { name: string; link: string }) => (
         <Link
           key={`hero-carousel-cta-${active.id}-${action.name}`}
           to={action.link}
