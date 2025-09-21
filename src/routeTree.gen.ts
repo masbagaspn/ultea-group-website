@@ -17,6 +17,7 @@ import { Route as ProdukIndexImport } from './routes/produk/index'
 import { Route as KontakIndexImport } from './routes/kontak/index'
 import { Route as InformasiIndexImport } from './routes/informasi/index'
 import { Route as ProdukProdukIdImport } from './routes/produk/$produkId'
+import { Route as InformasiTagsIndexImport } from './routes/informasi/tags/index'
 import { Route as InformasiSlugIndexImport } from './routes/informasi/$slug/index'
 import { Route as InformasiTagsSlugImport } from './routes/informasi/tags/$slug'
 
@@ -55,6 +56,12 @@ const InformasiIndexRoute = InformasiIndexImport.update({
 const ProdukProdukIdRoute = ProdukProdukIdImport.update({
   id: '/produk/$produkId',
   path: '/produk/$produkId',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const InformasiTagsIndexRoute = InformasiTagsIndexImport.update({
+  id: '/informasi/tags/',
+  path: '/informasi/tags/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -130,6 +137,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InformasiSlugIndexImport
       parentRoute: typeof rootRoute
     }
+    '/informasi/tags/': {
+      id: '/informasi/tags/'
+      path: '/informasi/tags'
+      fullPath: '/informasi/tags'
+      preLoaderRoute: typeof InformasiTagsIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -144,6 +158,7 @@ export interface FileRoutesByFullPath {
   '/tentang-kami': typeof TentangKamiIndexRoute
   '/informasi/tags/$slug': typeof InformasiTagsSlugRoute
   '/informasi/$slug': typeof InformasiSlugIndexRoute
+  '/informasi/tags': typeof InformasiTagsIndexRoute
 }
 
 export interface FileRoutesByTo {
@@ -155,6 +170,7 @@ export interface FileRoutesByTo {
   '/tentang-kami': typeof TentangKamiIndexRoute
   '/informasi/tags/$slug': typeof InformasiTagsSlugRoute
   '/informasi/$slug': typeof InformasiSlugIndexRoute
+  '/informasi/tags': typeof InformasiTagsIndexRoute
 }
 
 export interface FileRoutesById {
@@ -167,6 +183,7 @@ export interface FileRoutesById {
   '/tentang-kami/': typeof TentangKamiIndexRoute
   '/informasi/tags/$slug': typeof InformasiTagsSlugRoute
   '/informasi/$slug/': typeof InformasiSlugIndexRoute
+  '/informasi/tags/': typeof InformasiTagsIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -180,6 +197,7 @@ export interface FileRouteTypes {
     | '/tentang-kami'
     | '/informasi/tags/$slug'
     | '/informasi/$slug'
+    | '/informasi/tags'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -190,6 +208,7 @@ export interface FileRouteTypes {
     | '/tentang-kami'
     | '/informasi/tags/$slug'
     | '/informasi/$slug'
+    | '/informasi/tags'
   id:
     | '__root__'
     | '/'
@@ -200,6 +219,7 @@ export interface FileRouteTypes {
     | '/tentang-kami/'
     | '/informasi/tags/$slug'
     | '/informasi/$slug/'
+    | '/informasi/tags/'
   fileRoutesById: FileRoutesById
 }
 
@@ -212,6 +232,7 @@ export interface RootRouteChildren {
   TentangKamiIndexRoute: typeof TentangKamiIndexRoute
   InformasiTagsSlugRoute: typeof InformasiTagsSlugRoute
   InformasiSlugIndexRoute: typeof InformasiSlugIndexRoute
+  InformasiTagsIndexRoute: typeof InformasiTagsIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -223,6 +244,7 @@ const rootRouteChildren: RootRouteChildren = {
   TentangKamiIndexRoute: TentangKamiIndexRoute,
   InformasiTagsSlugRoute: InformasiTagsSlugRoute,
   InformasiSlugIndexRoute: InformasiSlugIndexRoute,
+  InformasiTagsIndexRoute: InformasiTagsIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -242,7 +264,8 @@ export const routeTree = rootRoute
         "/produk/",
         "/tentang-kami/",
         "/informasi/tags/$slug",
-        "/informasi/$slug/"
+        "/informasi/$slug/",
+        "/informasi/tags/"
       ]
     },
     "/": {
@@ -268,6 +291,9 @@ export const routeTree = rootRoute
     },
     "/informasi/$slug/": {
       "filePath": "informasi/$slug/index.tsx"
+    },
+    "/informasi/tags/": {
+      "filePath": "informasi/tags/index.tsx"
     }
   }
 }

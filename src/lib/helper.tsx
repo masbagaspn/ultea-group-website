@@ -24,3 +24,15 @@ export function formatISODate(isoString: string) {
 
   return date.toLocaleDateString('id-ID', options)
 }
+
+export function formatSlug(slug: string) {
+  return slug.replace('-', ' ')
+}
+
+export function calculateRange(page: number, pageSize: number, totalItem: number) {
+  const offset = (page - 1) * pageSize
+  const startItem = offset + 1
+  const endItem = offset + totalItem
+
+  return { startItem, endItem }
+}

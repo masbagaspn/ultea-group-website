@@ -31,12 +31,16 @@ const InformationListCard = ({ information, isLast }: InformationListCardProps) 
           <div className="flex w-full justify-between text-xs font-light text-black capitalize lg:text-base">
             <Link
               to="/informasi/tags/$slug"
-              params={{ slug: category.name }}
+              params={{ slug: category.slug }}
               className="transition hover:underline"
             >
               <span>{category.name}</span>
             </Link>
-            <Link to="/informasi" search={{ page: 1, type: type.value }}>
+            <Link
+              to="/informasi"
+              search={{ page: 1, type: type.value }}
+              className="transition hover:underline"
+            >
               <span>{type.name}</span>
             </Link>
           </div>
