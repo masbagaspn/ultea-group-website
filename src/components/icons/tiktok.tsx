@@ -1,10 +1,6 @@
-type TikTokProps = {
-  className?: string
-  size?: number | string
-  color?: string
-}
+import type { SocialMediaIconProps } from '@models/socmed'
 
-const TikTok = ({ className, size, color }: TikTokProps) => {
+const TikTok = ({ className, size, color }: SocialMediaIconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -1,10 +1,6 @@
-type InstagramProps = {
-  className?: string
-  size?: number | string
-  color?: string
-}
+import type { SocialMediaIconProps } from '@models/socmed'
 
-const Instagram = ({ className, size, color }: InstagramProps) => {
+const Instagram = ({ className, size, color }: SocialMediaIconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

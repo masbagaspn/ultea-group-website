@@ -36,3 +36,12 @@ export function calculateRange(page: number, pageSize: number, totalItem: number
 
   return { startItem, endItem }
 }
+
+export function generateWhatsappLink(title: string, category: string, slug: string) {
+  const url = `${import.meta.env.VITE_BASE_URL}/informasi/${slug}`
+  const message = `${title}\nKategori: ${category}\n\nBaca selengkapnya di: ${url}`
+
+  const encodedMessage = encodeURIComponent(message)
+
+  return `https://wa.me/?text=${encodedMessage}`
+}

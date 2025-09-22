@@ -1,8 +1,8 @@
 import { useRouter } from '@tanstack/react-router'
 import * as React from 'react'
 
-import Footer from '@components/layout/footer'
-import NavBar from '@components/navigations/navbar'
+import Footer from '@components/footer/Footer'
+import NavBar from '@components/navigations/Navbar'
 
 const PageLayout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter()

@@ -1,3 +1,7 @@
+import Instagram from '@components/icons/instagram'
+import TikTok from '@components/icons/tiktok'
+import Whatsapp from '@components/icons/whatsapp'
+
 const RUMAH_ULTEA = {
   NAME: 'Rumah Ultea',
   CONTENTS: [
@@ -16,18 +20,21 @@ const SOCIAL_MEDIA = {
       LINKS: 'https://wa.me/+6281235636878',
       TARGET: '081235636878',
       PERSON: 'Mbak Dewi',
+      ICON: Whatsapp,
     },
     {
       NAME: 'Instagram',
       LINKS: 'https://instagram.com/@ulteaofficial',
       TARGET: '@ulteaofficial',
       PERSON: undefined,
+      ICON: Instagram,
     },
     {
       NAME: 'Tiktok',
       LINKS: 'https://tiktok.com/@ulteaofficial',
       TARGET: '@ulteaofficial',
       PERSON: undefined,
+      ICON: TikTok,
     },
   ],
 }

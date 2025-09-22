@@ -17,7 +17,7 @@ const InformationFilterByTitleListCard = ({
         <div className="flex flex-col gap-2 p-2">
           <span className="text-primary/50 text-[10px] capitalize">{type.name}</span>
           <p className="w-full text-xs font-semibold text-wrap">{information.title}</p>
-          <span className="text-primary/50 text-xs capitalize">
+          <span className="text-primary/50 text-[10px] capitalize">
             {formatISODate(information.createdAt)}
           </span>
         </div>

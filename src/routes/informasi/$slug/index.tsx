@@ -1,5 +1,9 @@
-import { getInformationBySlug } from '@api/informations.api'
 import { createFileRoute } from '@tanstack/react-router'
+
+import PageLayout from '@components/layout/PageLayout'
+
+import { getInformationBySlug } from '@api/informations.api'
+import InformationLayout from './-components/layout/InformationLayout'
 
 export const Route = createFileRoute('/informasi/$slug/')({
   component: RouteComponent,
@@ -13,6 +17,9 @@ export const Route = createFileRoute('/informasi/$slug/')({
 function RouteComponent() {
   const information = Route.useLoaderData()
 
-  console.log(information)
-  return <div>Hello "/informasi/$slug/"!</div>
+  return (
+    <PageLayout>
+      <InformationLayout />
+    </PageLayout>
+  )
 }
